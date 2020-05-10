@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Map, Sidenav } from './components' 
+import { Sidenav } from './components' 
 import { fetchData } from './api'
 
 
@@ -17,9 +17,7 @@ export default class App extends Component {
     const { coronaData } = this.state
 
     return (
-      <div>
-          <Sidenav coronaData={coronaData} />
-      </div>
+      <Sidenav coronaData={coronaData} />
     )
   }
 }
