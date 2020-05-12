@@ -1,0 +1,35 @@
+.heading{
+    text-align: center;
+}
+
+.heading h5 {
+    text-transform: uppercase;
+    margin-bottom: 2vw;
+}
+
+
+.card {
+    border: 1px solid rgba(218, 207, 207, 0.829);
+    text-align: center;
+    margin-bottom: 2vw;
+
+}
+
+.card h5,
+.card h6 {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.infected {
+    background-color: rgba(247, 163, 45);
+}
+
+.discharged {
+    background-color: rgba(81, 209, 64);
+}
+
+.deaths {
+    background-color: rgba(247, 45, 45);
+}
+

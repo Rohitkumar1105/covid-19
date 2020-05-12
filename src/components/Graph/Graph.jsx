@@ -12,23 +12,9 @@ const Graph = ({graphData}) => {
                         datasets: [{
                             label: 'People',
                             fill: true,
-                            backgroundColor: ['orange', 'green', 'red'],
+                            backgroundColor: ['rgba(247, 163, 45)', 'rgba(81, 209, 64)', 'rgba(247, 45, 45)'],
                             data: [graphData.totalConfirmed, graphData.discharged, graphData.deaths],
                         }]
-                        // {
-                        //     data: [graphData.discharged],
-                        //     label: 'Recovered',
-                        //     fill: true,
-                        //     backgroundColor: 'green',
-                        // },
-                        // {
-                        //     data: [graphData.deaths],
-                        //     label: 'Deceased',
-                        //     fill: true,
-                        //     backgroundColor: 'red',
-                        //     categoryPercentage: 1.0,
-                        //     barPercentage: 1.0,
-                        // }],
                     }}
                     options = {{
                         legend: { display: false }
