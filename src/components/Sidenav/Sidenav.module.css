@@ -1,33 +1,27 @@
 /* SIDE BAR STYLES */
 .sidenav {
     height: 100%;
-    /* width: 350px; */
-    /* position: fixed; */
     z-index: 1;
     top: 0;
     left: 0;
-    overflow-x: hidden;
     padding-top: 20px;
     border: 1px solid gray;
   }
   
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
+.sidenav li {
+  padding: 0.1rem;
 }
 
-.sidenav a:hover {
-  color: #f1f1f1;
+.sidenav li:hover {
+  cursor: pointer;
+  background-color: rgb(171, 168, 180);
 }
+
 /* END SIDE BAR STYLES */
 
 /* DISPLAYING THE NUMBERS */
 .displayNumbers div {
   padding: 0 5%;
-  margin: 0;
 }
 
 .displayNumbers div h4,
@@ -47,6 +41,8 @@
 /* DISPLAYING THE STATES */
 .displayStates {
   padding: 0 5%;
+  overflow-y: scroll;
+  height: 700px;
 }
 
 /* END DISPLAYING THE STATES */
@@ -54,7 +50,7 @@
 /* SCROLLBAR STYLES */
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
 }
 
 /* Track */
