@@ -16,7 +16,6 @@
   cursor: pointer;
   background-color: rgb(171, 168, 180);
 }
-
 /* END SIDE BAR STYLES */
 
 /* DISPLAYING THE NUMBERS */
@@ -44,7 +43,6 @@
   overflow-y: scroll;
   height: 700px;
 }
-
 /* END DISPLAYING THE STATES */
 
 /* SCROLLBAR STYLES */

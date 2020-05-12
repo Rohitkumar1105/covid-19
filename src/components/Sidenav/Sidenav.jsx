@@ -48,8 +48,8 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
                             <h6 className="center">Recovered</h6>
                         </div>
                     </div>
-
-                    <input type="text" id="state" placeholder="Search for the state.." value={stateName} onChange={e => setStateName(e.target.value)} />
+                
+                    <input className={styles.inputField} type="text" id="state" placeholder="Search for the state.." value={stateName} onChange={e => setStateName(e.target.value)} />
 
                     <div className={styles.displayStates}>
                         { stateName === '' ? stateList : filteredStateList }                        

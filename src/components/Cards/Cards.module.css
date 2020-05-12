@@ -12,24 +12,30 @@
     border: 1px solid rgba(218, 207, 207, 0.829);
     text-align: center;
     margin-bottom: 2vw;
-
+    border-radius: 10px;
 }
 
-.card h5,
+.card h4,
 .card h6 {
     margin: 0;
-    padding: 5px 0;
+    padding: 5px;
+}
+
+.card img {
+    padding-top: 10px;
 }
 
 .infected {
-    background-color: rgba(247, 163, 45);
+    background-color: rgb(127, 125, 224);
+    border-radius: 10px;
 }
 
 .discharged {
     background-color: rgba(81, 209, 64);
+    border-radius: 10px;
 }
 
 .deaths {
     background-color: rgba(247, 45, 45);
+    border-radius: 10px;
 }
-

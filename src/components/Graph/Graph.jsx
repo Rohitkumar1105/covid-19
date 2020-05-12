@@ -12,7 +12,7 @@ const Graph = ({graphData}) => {
                         datasets: [{
                             label: 'People',
                             fill: true,
-                            backgroundColor: ['rgba(247, 163, 45)', 'rgba(81, 209, 64)', 'rgba(247, 45, 45)'],
+                            backgroundColor: ['rgb(127, 125, 224)', 'rgb(81, 209, 64)', 'rgb(247, 45, 45)'],
                             data: [graphData.totalConfirmed, graphData.discharged, graphData.deaths],
                         }]
                     }}
