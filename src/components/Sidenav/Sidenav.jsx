@@ -29,7 +29,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
     const filteredStateList = filteredStateName.map((state,index) => {
         return (
             <ul key={index}>
-                <li>{state.loc}</li>
+                <li onClick={() => handleSubmit(state)}>{state.loc}</li>
             </ul>
         )
     })
@@ -55,6 +55,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
                     </div>
                 </div>
             </div>
+            <div className="col l1"></div>
             <div className="col s12 m8">
                 <Cards stateData={stateData} />
             </div>

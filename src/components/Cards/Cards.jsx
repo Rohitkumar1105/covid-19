@@ -1,4 +1,5 @@
 import React from 'react'
+import { Graph } from '../index'
 
 const Cards = ({stateData}) => {
     return (
@@ -25,6 +26,7 @@ const Cards = ({stateData}) => {
                     <h6>{stateData.deaths}</h6>
                 </div>
             </div>
+            <Graph graphData={stateData} />
         </div>
     )
 }
