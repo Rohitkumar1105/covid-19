@@ -19,8 +19,8 @@ const Cards = ({stateData}) => {
                 <h5><strong>{stateData.loc}</strong></h5>
             </div>
             <div className="row">
-                <div className="col m2"></div>
-                <div className="col s12 m2">
+                <div className="col l2"></div>
+                <div className="col s12 m3">
                     <div className={styles.card}>
                         <div className={styles.infected}>
                             <img src={active} alt="active" />
@@ -29,8 +29,8 @@ const Cards = ({stateData}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col m1"></div>
-                <div className="col s12 m2">
+                <div className="col l1"></div>
+                <div className="col s12 m3">
                     <div className={styles.card}>
                         <div className={styles.discharged}>
                             <img src={cured} alt="active" />
@@ -39,8 +39,8 @@ const Cards = ({stateData}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col m1"></div>
-                <div className="col s12 m2">
+                <div className="col l1"></div>
+                <div className="col s12 m3">
                     <div className={styles.card}>
                         <div className={styles.deaths}>
                             <img src={death} alt="active" />
@@ -49,7 +49,7 @@ const Cards = ({stateData}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col m2"></div>
+                <div className="col l2"></div>
             </div>
 
             <div className="row">
