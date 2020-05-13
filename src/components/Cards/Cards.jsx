@@ -17,6 +17,7 @@ const Cards = ({stateData}) => {
             <div className={styles.heading}>
                 <Header />
                 <h5><strong>{stateData.loc}</strong></h5>
+                <h6><strong>Total {stateData.totalConfirmed}</strong></h6>
             </div>
             <div className="row">
                 <div className="col l1"></div>
@@ -24,7 +25,7 @@ const Cards = ({stateData}) => {
                     <div className={styles.card}>
                         <div className={styles.infected}>
                             <img src={active} alt="active" />
-                            <h4> <CountUp start={0} end={stateData.totalConfirmed} duration={1} separator="," /> </h4>
+                            <h4> <CountUp start={0} end={stateData.totalConfirmed - stateData.discharged} duration={1} separator="," /> </h4>
                             <h6>Active Cases</h6> 
                         </div>
                     </div>
