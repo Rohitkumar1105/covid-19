@@ -19,7 +19,7 @@ const Cards = ({stateData}) => {
                 <h5><strong>{stateData.loc}</strong></h5>
             </div>
             <div className="row">
-                <div className="col l2"></div>
+                <div className="col l1"></div>
                 <div className="col s12 m3">
                     <div className={styles.card}>
                         <div className={styles.infected}>
@@ -49,7 +49,6 @@ const Cards = ({stateData}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col l2"></div>
             </div>
 
             <div className="row">
