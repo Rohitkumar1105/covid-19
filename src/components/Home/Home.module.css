@@ -3,6 +3,7 @@
     box-shadow: 5px 5px lightgray;
     width: 40rem;
     margin: auto;
+    border-radius: 10px;
 }
 
 .center {
