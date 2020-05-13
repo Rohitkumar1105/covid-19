@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import CountUp from 'react-countup'
 import styles from './Sidenav.module.css'
-import Cards from '../Cards/Cards'
+import {Cards} from '../index'
 
 const Sidenav = ({ coronaData: { summary, regional } }) => {
     const [stateName, setStateName] = useState('')
@@ -56,7 +56,9 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
                     </div>
                 </div>
             </div>
-            <div className="col l1"></div>
+ 
+            <div className="col l1"></div> 
+            
             <div className="col s12 m8">
                 <Cards stateData={stateData} />
             </div>

@@ -17,7 +17,10 @@ export default class App extends Component {
     const { coronaData } = this.state
 
     return (
-      <Sidenav coronaData={coronaData} />
+      <div>
+        <Sidenav coronaData={coronaData} />
+      </div>
+
     )
   }
 }

@@ -39,3 +39,9 @@
     background-color: rgba(247, 45, 45);
     border-radius: 10px;
 }
+
+.showGraph {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+} 

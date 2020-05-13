@@ -23,11 +23,6 @@
   padding: 0 5%;
 }
 
-.displayNumbers div h4,
-.displayNumbers div h6 {
-  margin: 4px;
-}
-
 .displayNumbers div h6 {
   font-size: 12px;
   color: gray;
@@ -68,3 +63,11 @@
   background: #b30000; 
 }
 /* END SCROLLBAR STYLES */
+
+@media only screen and (max-width: 600px) {
+  .displayStates {
+    padding: 0 5%;
+    overflow-y: scroll;
+    height: 200px;
+  }
+}

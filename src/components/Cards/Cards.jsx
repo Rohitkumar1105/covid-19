@@ -1,5 +1,5 @@
 import React from 'react'
-import { Graph, Home } from '../index'
+import { Graph, Header, Home } from '../index'
 import styles from './Cards.module.css'
 import CountUp from 'react-countup' 
 
@@ -15,7 +15,7 @@ const Cards = ({stateData}) => {
     return (
         <div>
             <div className={styles.heading}>
-                <h3>COVID - 19</h3>
+                <Header />
                 <h5><strong>{stateData.loc}</strong></h5>
             </div>
             <div className="row">
@@ -53,7 +53,7 @@ const Cards = ({stateData}) => {
             </div>
 
             <div className="row">
-                <div className="center">
+                <div className={styles.showGraph}>
                     <Graph graphData={stateData} />
                 </div>
             </div>

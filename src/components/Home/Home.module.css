@@ -1,0 +1,38 @@
+.card {
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px lightgray;
+    width: 40rem;
+    margin: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.center img {
+    margin: 10px;
+}
+
+.center h4 {
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.center h6 {
+    font-weight: 500;
+}
+
+.center ol {
+    text-align: center;
+    padding: 0;
+}
+
+.center ol li {
+    list-style-type: none;
+}
+
+.center span {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: red;
+}
