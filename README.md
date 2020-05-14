@@ -18,6 +18,7 @@
     <li>Chart.js - To display the data in graphical manner</li>
     <li>react-chartjs-2 - The react library for chart.js. Gives us graph components out of the box</li>
     <li>react-ountup - The number animation.</li>
+    <li>Materialize CDN - Used to style the components</li>
 </ol>
 
 <h3>Deployment</h3>
