@@ -4,7 +4,7 @@
 <h3>To clone the project</h3>
 <ol>
     <li>Open terminal and type the command <strong>git clone https://github.com/Rohitkumar1105/covid-19.git</strong></li>
-    <li>Wait as the repository get downloaded</li>
+    <li>Wait as the repository gets downloaded</li>
     <li>Change the directory using <strong>cd covid-19</strong></li>
     <li>run <strong>npm install</strong> - This will install all the dependencies required from the package.json file</li>
     <li>After the dependencies are installed run the command <strong>npm start</strong></li>
