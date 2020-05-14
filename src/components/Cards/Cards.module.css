@@ -27,6 +27,11 @@
     padding-top: 10px;
 }
 
+.total {
+    background-color: rgb(175, 23, 175);
+    border-radius: 10px;
+}
+
 .infected {
     background-color: rgb(127, 125, 224);
     border-radius: 10px;
@@ -44,6 +49,6 @@
 
 .showGraph {
     height: 80%;
-    width: 80%;
+    width: 90%;
     margin: auto;
 }

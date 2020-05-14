@@ -17,11 +17,18 @@ const Cards = ({stateData}) => {
             <div className={styles.heading}>
                 <Header />
                 <h5><strong>{stateData.loc}</strong></h5>
-                <h6><strong>Total {stateData.totalConfirmed}</strong></h6>
             </div>
             <div className="row">
-                <div className="col l1"></div>
-                <div className="col s12 m3">
+                <div className="col s12 m6 l3">
+                    <div className={styles.card}>
+                        <div className={styles.total}>
+                            <img src={death} alt="total" />
+                            <h4> <CountUp start={0} end={stateData.totalConfirmed} duration={1} separator="," /> </h4>
+                            <h6>Total Cases</h6> 
+                        </div>
+                    </div>
+                </div>
+                <div className="col s12 m6 l3">
                     <div className={styles.card}>
                         <div className={styles.infected}>
                             <img src={active} alt="active" />
@@ -30,8 +37,7 @@ const Cards = ({stateData}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col l1"></div>
-                <div className="col s12 m3">
+                <div className="col s12 m6 l3">
                     <div className={styles.card}>
                         <div className={styles.discharged}>
                             <img src={cured} alt="active" />
@@ -40,8 +46,7 @@ const Cards = ({stateData}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col l1"></div>
-                <div className="col s12 m3">
+                <div className="col s12 m6 l3">
                     <div className={styles.card}>
                         <div className={styles.deaths}>
                             <img src={death} alt="active" />

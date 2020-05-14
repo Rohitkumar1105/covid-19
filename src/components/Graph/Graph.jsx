@@ -8,12 +8,12 @@ const Graph = ({graphData}) => {
                 graphData ?
                 <Bar 
                     data={{
-                        labels: ['Active', 'Recovered', 'Deaths'],
+                        labels: ['Total', 'Active', 'Recovered', 'Deaths'],
                         datasets: [{
                             label: 'People',
                             fill: true,
-                            backgroundColor: ['rgb(127, 125, 224)', 'rgb(81, 209, 64)', 'rgb(247, 45, 45)'],
-                            data: [graphData.totalConfirmed, graphData.discharged, graphData.deaths],
+                            backgroundColor: ['rgb(175, 23, 175)', 'rgb(127, 125, 224)', 'rgb(81, 209, 64)', 'rgb(247, 45, 45)'],
+                            data: [graphData.totalConfirmed, graphData.totalConfirmed - graphData.discharged, graphData.discharged, graphData.deaths],
                         }]
                     }}
                     options = {{
