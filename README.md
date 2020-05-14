@@ -23,7 +23,7 @@
 <h3>Deployment</h3>
 <ol>
     <li>Deployed the application on netlify</li>
-    <li>The application is live and can be found at <a href="incov19.ml">incov19.ml</a></li>
+    <li>The application is live and can be found at <a href="indcov19.ml" target="_blank">indcov19.ml</a></li>
     <li>The .ml domain name is provided by freenom and is free of cost</li>
 </ol>
 
