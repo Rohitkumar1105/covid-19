@@ -8,6 +8,6 @@ export const fetchData = async () => {
         return data.data
     }
     catch (error){ 
-        console.log(error)
+        console.error(error)
     }
 }
