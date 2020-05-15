@@ -4,14 +4,9 @@
     z-index: 1;
     top: 0;
     left: 0;
-    padding-top: 20px;
     border: 1px solid gray;
   }
   
-.sidenav li {
-  padding: 0.1rem;
-}
-
 .sidenav li:hover {
   cursor: pointer;
   background-color: rgb(171, 168, 180);
@@ -34,9 +29,16 @@
 
 /* DISPLAYING THE STATES */
 .displayStates {
-  padding: 0 5%;
   overflow-y: scroll;
-  height: 700px;
+  height: 850px;
+}
+
+ul {
+  margin: 0;
+}
+
+ul li {
+  padding: 10px;
 }
 /* END DISPLAYING THE STATES */
 
@@ -66,7 +68,6 @@
 
 @media only screen and (max-width: 600px) {
   .displayStates {
-    padding: 0 5%;
     overflow-y: scroll;
     height: 200px;
   }

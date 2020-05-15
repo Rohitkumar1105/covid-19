@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CountUp from 'react-countup'
+// import CountUp from 'react-countup'
 import styles from './Sidenav.module.css'
 import {Cards} from '../index'
 
@@ -7,7 +7,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
     const [stateName, setStateName] = useState('')
     const [stateData, setStateData] = useState('')
 
-    const handleSubmit = (stateData) => {
+    const handleClick = (stateData) => {
         setStateData(stateData)
     }
 
@@ -17,7 +17,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
     const stateList = regional.map((state, index) => {
         return (
             <ul key={index}>
-                <li onClick={() => handleSubmit(state)}>{state.loc}</li>
+                <li onClick={() => handleClick(state)}>{state.loc}</li>
             </ul>
         )
     })
@@ -29,7 +29,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
     const filteredStateList = filteredStateName.map((state,index) => {
         return (
             <ul key={index}>
-                <li onClick={() => handleSubmit(state)}>{state.loc}</li>
+                <li onClick={() => handleClick(state)}>{state.loc}</li>
             </ul>
         )
     })
@@ -37,7 +37,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
         <div className="row">
             <div className="col s12 m4 l2">
                 <div className={styles.sidenav}>
-                    <div className={styles.displayNumbers}>
+                    {/* <div className={styles.displayNumbers}>
                         <h3 className="red-text center"><CountUp start={0} end={summary.total} duration={2} separator="," /> </h3>
                         <div className="left">
                             <h4>  <CountUp start={0} end={summary.deaths} duration={2} separator="," /> </h4>
@@ -47,9 +47,17 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
                             <h4>  <CountUp start={0} end={summary.discharged} duration={2} separator="," /> </h4>
                             <h6 className="center">Recovered</h6>
                         </div>
+                    </div> */}
+
+                    <div>
+                        <label htmlFor="state"></label>
+                        <input 
+                            type="text" 
+                            id="state" 
+                            placeholder="Search for the state.." 
+                            value={stateName} onChange={e => setStateName(e.target.value)} 
+                        />
                     </div>
-                
-                    <input className={styles.inputField} type="text" id="state" placeholder="Search for the state.." value={stateName} onChange={e => setStateName(e.target.value)} />
 
                     <div className={styles.displayStates}>
                         { stateName === '' ? stateList : filteredStateList }                        
@@ -60,7 +68,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
             <div className="col l1"></div> 
             
             <div className="col s12 m8">
-                <Cards stateData={stateData} />
+                <Cards stateData={stateData} summary={summary} />
             </div>
         </div>
     )

@@ -13,7 +13,12 @@ const Graph = ({graphData}) => {
                             label: 'People',
                             fill: true,
                             backgroundColor: ['rgb(175, 23, 175)', 'rgb(127, 125, 224)', 'rgb(81, 209, 64)', 'rgb(247, 45, 45)'],
-                            data: [graphData.totalConfirmed, graphData.totalConfirmed - graphData.discharged, graphData.discharged, graphData.deaths],
+                            data: [
+                                graphData.totalConfirmed ? graphData.totalConfirmed : graphData.total, 
+                                (graphData.totalConfirmed ? graphData.totalConfirmed : graphData.total) - graphData.discharged - graphData.deaths, 
+                                graphData.discharged, 
+                                graphData.deaths
+                            ],
                         }]
                     }}
                     options = {{
