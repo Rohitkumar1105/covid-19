@@ -5,13 +5,14 @@
     top: 0;
     left: 0;
     border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 2px 2px lightgray;
   }
   
 .sidenav li:hover {
   cursor: pointer;
   background-color: rgb(171, 168, 180);
 }
-/* END SIDE BAR STYLES */
 
 /* DISPLAYING THE NUMBERS */
 .displayNumbers div {
@@ -25,7 +26,6 @@
   font-weight: 600;
 }
 
-/* END DISPLAYING THE NUMBERS */
 
 /* DISPLAYING THE STATES */
 .displayStates {
@@ -60,15 +60,9 @@ ul li {
   border-radius: 10px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
-}
-/* END SCROLLBAR STYLES */
-
 @media only screen and (max-width: 600px) {
   .displayStates {
     overflow-y: scroll;
-    height: 200px;
+    height: 150px;
   }
 }
