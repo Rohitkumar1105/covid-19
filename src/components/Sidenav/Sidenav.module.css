@@ -30,7 +30,6 @@
 /* DISPLAYING THE STATES */
 .displayStates {
   overflow-y: scroll;
-  height: 850px;
 }
 
 ul {
@@ -65,4 +64,17 @@ ul li {
     overflow-y: scroll;
     height: 150px;
   }
+}
+
+.search {
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  box-shadow: 0 1px 0.1875rem #616e80;
+  min-width: 16.25rem;
+  max-height: 300px;
+  overflow-y: scroll;
+  z-index: 100;
 }

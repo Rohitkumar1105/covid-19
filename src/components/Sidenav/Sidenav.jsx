@@ -14,13 +14,13 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
     if(!summary){
         return <h1>Loading...</h1>
     }
-    const stateList = regional.map((state, index) => {
-        return (
-            <ul key={index}>
-                <li onClick={() => handleClick(state)}>{state.loc}</li>
-            </ul>
-        )
-    })
+    // const stateList = regional.map((state, index) => {
+    //     return (
+    //         <ul key={index}>
+    //             <li onClick={() => handleClick(state)}>{state.loc}</li>
+    //         </ul>
+    //     )
+    // })
 
     const filteredStateName = regional.filter(state => 
         state.loc.toLowerCase().includes(stateName.toLowerCase())
@@ -36,7 +36,7 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
     return (
         <div className="row">
             <div className="col s12 m4 l2">
-                <div className={styles.sidenav}>
+                <div>
                     {/* <div className={styles.displayNumbers}>
                         <h3 className="red-text center"><CountUp start={0} end={summary.total} duration={2} separator="," /> </h3>
                         <div className="left">
@@ -59,8 +59,8 @@ const Sidenav = ({ coronaData: { summary, regional } }) => {
                         />
                     </div>
 
-                    <div className={styles.displayStates}>
-                        { stateName === '' ? stateList : filteredStateList }                        
+                    <div>
+                        { stateName === '' ? '' : <div className={styles.search}> {filteredStateList} </div> }                        
                     </div>
                 </div>
             </div>
