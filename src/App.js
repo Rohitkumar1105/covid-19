@@ -1,44 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import { Sidenav } from './components' 
-import { fetchData } from './api'
-
-
-// export default class App extends Component {
-//     state = { 
-//       coronaData : {},
-//      }
-
-//   async componentDidMount() {
-//     const fetchedData = await fetchData()
-//     this.setState({ coronaData: fetchedData })
-//   }
-
-//   render() {
-//     const { coronaData } = this.state
-
-//     return (
-//       <div>
-//         <Sidenav coronaData={coronaData} />
-//       </div>
-
-//     )
-//   }
-// }
+import React from 'react'
+import { Sidenav, Cards } from './components' 
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
 
 const App = () => {
-  const [coronaData, setCoronaData] = useState({})
-  useEffect(()=> {
-    const getData = async () => {
-      const fetchedData = await fetchData()
-      setCoronaData(fetchedData)
-    }
-    getData()
-  }, [])
-
   return (
-    <div>
-      <Sidenav coronaData={coronaData} />
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Sidenav} />
+          <Route exact path={`${process.env.PUBLIC_URL}/:name`} component={Cards} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   )
 }
 

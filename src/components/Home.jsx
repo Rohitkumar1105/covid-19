@@ -1,7 +1,7 @@
 import React from 'react'
-import { Header } from '../index'
-import styles from './Home.module.css'
-import count from '../../img/counting.gif'
+import { Header } from './index'
+import styles from '../css/Home.module.css'
+import count from '../img/counting.gif'
 
 const Home = ({summary}) => {
     console.log(summary)

@@ -1,37 +1,27 @@
 import React from 'react'
-import { Graph, Header } from '../index'
-import styles from './Cards.module.css'
+import { Graph } from './index'
+import styles from '../css/Cards.module.css'
 import CountUp from 'react-countup' 
 
 // Importing the Images
-import active from '../../img/icon-active.png'
-import cured from '../../img/icon-inactive.png'
-import virus from '../../img/icon-infected.png'
+import active from '../img/icon-active.png'
+import cured from '../img/icon-inactive.png'
+import virus from '../img/icon-infected.png'
 
-const Cards = ({stateData, summary}) => {
-    let activeCases, discharged, deaths, total, graphData, fatalityRate, recoveryRate = 0;
+const Cards = ({stateData}) => {
+    let activeCases,fatalityRate, recoveryRate = 0;
 
     if(!stateData) {
-        activeCases = summary.total - summary.discharged - summary.deaths
-        total = summary.total
-        discharged = summary.discharged
-        deaths = summary.deaths
-        graphData = summary
-        fatalityRate = (summary.deaths/summary.total) * 100
-        recoveryRate = (summary.discharged/summary.total) * 100
-    } else {
-        activeCases = stateData.totalConfirmed - stateData.discharged - stateData.deaths
-        total = stateData.totalConfirmed
-        discharged = stateData.discharged
-        deaths = stateData.deaths
-        graphData = stateData
-        fatalityRate = (stateData.deaths/stateData.totalConfirmed) * 100
+        return "Loading..."
     }
+    
+    activeCases = stateData.totalConfirmed - stateData.discharged - stateData.deaths
+    fatalityRate = (stateData.deaths/stateData.totalConfirmed) * 100
+    recoveryRate = (stateData.discharged/stateData.totalConfirmed) * 100
 
     return (
         <div>
             <div className={styles.heading}>
-                <Header />
                 <h5>{ stateData.loc ? <strong>{stateData.loc}</strong> : <strong>INDIA</strong> }</h5>
             </div>
             <div className="row">
@@ -39,7 +29,7 @@ const Cards = ({stateData, summary}) => {
                     <div className={styles.card}>
                         <div className={styles.total}>
                             <img src={virus} alt="total" />
-                            <h4> <CountUp start={0} end={total} duration={1} separator="," /> </h4>
+                            <h4> <CountUp start={0} end={stateData.totalConfirmed } duration={1} separator="," /> </h4>
                             <h6>Total Cases</h6> 
                         </div>
                     </div>
@@ -57,7 +47,7 @@ const Cards = ({stateData, summary}) => {
                     <div className={styles.card}>
                         <div className={styles.discharged}>
                             <img src={cured} alt="active" />
-                            <h4> <CountUp start={0} end={discharged} duration={1} separator=","  /> </h4>
+                            <h4> <CountUp start={0} end={stateData.discharged} duration={1} separator=","  /> </h4>
                             <h6>Cured / Discharged</h6>
                         </div>
                     </div>
@@ -66,7 +56,7 @@ const Cards = ({stateData, summary}) => {
                     <div className={styles.card}>
                         <div className={styles.deaths}>
                             <img src={virus} alt="active" />
-                            <h4> <CountUp start={0} end={deaths} duration={1} separator=","  /> </h4>
+                            <h4> <CountUp start={0} end={stateData.deaths} duration={1} separator=","  /> </h4>
                             <h6>Deaths</h6>
                         </div>
                     </div>
@@ -90,7 +80,7 @@ const Cards = ({stateData, summary}) => {
 
             <div className="row">
                 <div className={styles.showGraph}>
-                    <Graph graphData={graphData} />
+                    <Graph graphData={stateData} />
                 </div>
             </div>
         </div>
