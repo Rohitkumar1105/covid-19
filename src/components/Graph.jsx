@@ -1,11 +1,11 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
-const Graph = ({graphData}) => {
+const Graph = ({total, activeCases, discharged, deaths}) => {
     return(
         <div>
             {   
-                graphData ?
+                total ?
                 <Bar 
                     data={{
                         labels: ['Total', 'Active', 'Recovered', 'Deaths'],
@@ -13,12 +13,7 @@ const Graph = ({graphData}) => {
                             label: 'People',
                             fill: true,
                             backgroundColor: ['rgb(207, 59, 207)', 'rgb(127, 125, 224)', 'rgb(81, 209, 64)', 'rgb(247, 45, 45)'],
-                            data: [
-                                graphData.totalConfirmed ? graphData.totalConfirmed : graphData.total, 
-                                (graphData.totalConfirmed ? graphData.totalConfirmed : graphData.total) - graphData.discharged - graphData.deaths, 
-                                graphData.discharged, 
-                                graphData.deaths
-                            ],
+                            data: [total, activeCases, discharged, deaths ],
                         }]
                     }}
                     options = {{

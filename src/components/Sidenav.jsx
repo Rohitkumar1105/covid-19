@@ -2,31 +2,35 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import CountUp from 'react-countup'
 import { Header } from './index'
-import { Redirect, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import '../css/Sidenav.css'
 import { fetchData } from '../action/getCoronaData_action'
 
-const Sidenav = () => {
+const Sidenav = (props) => {
+    //State
     const [stateName, setStateName] = useState('')
-    const [stateData, setStateData] = useState('')
 
+    //Dispatching action to fetch data from API
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchData())
-      }, [])
+      }, [dispatch])
     
-    const data = useSelector(state => state.covid.data)
-    const lastUpdate = useSelector(state => state.covid.lastRefreshed)
+    //Fetching data from redux store
+    const data = useSelector(state => state.covid.data.data)
+    const lastUpdate = useSelector(state => state.covid.data.lastRefreshed)
 
+    const history = useHistory()
+    
     const handleClick = (stateData) => {
-        return (
-            <Redirect to={`${process.env.PUBLIC_URL/stateData.loc}`} />
-        )
+        history.push(`/${stateData.loc}`)
     }
 
     if(!data){
         return <h1>Loading...</h1>
     }
+
+    //Mapping over the state data and displaying it in a table
     const stateList = data.regional.map((state, index) => {
         return (
             <tr key={index} onClick={() => handleClick(state)}>
@@ -40,10 +44,12 @@ const Sidenav = () => {
         )
     })
 
+    //Filtering the state data list
     const filteredStateName = data.regional.filter(state => 
         state.loc.toLowerCase().includes(stateName.toLowerCase())
         )
     
+    //Displaying the filtered list
     const filteredStateList = filteredStateName.map((state,index) => {
         return (
             <tr key={index} onClick={() => handleClick(state)}>
@@ -57,6 +63,7 @@ const Sidenav = () => {
         )
     })
 
+    //Calculating the active cases
     const active = data.summary.total - data.summary.deaths - data.summary.discharged
 
     return (

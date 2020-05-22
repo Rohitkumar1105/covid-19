@@ -9,7 +9,7 @@ function saveToLocalStorage(state) {
         localStorage.setItem('state', serializedState)
     }
     catch (e) {
-        console.error(e)
+        console.log(e)
     }
 }
 
@@ -21,7 +21,7 @@ function loadFromLocalStorage(){
         return JSON.stringify(serializedState)
     }
     catch (e){
-        console.error(e)
+        console.log(e)
         return undefined
     }
 }
@@ -30,15 +30,13 @@ const preloadedState = loadFromLocalStorage()
 
 const store = createStore(rootReducer, preloadedState, compose(
     applyMiddleware(thunk),
+
     //For working redux dev tools in chrome (https://github.com/zalmoxisus/redux-devtools-extension)
     window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : function (f) {
         return f;
     }
 ))
 
-store.subscribe(() => {
-    const state = store.getState()
-    saveToLocalStorage(state)
-}) 
+store.subscribe(() => saveToLocalStorage(store.getState())) 
 
 export default store
