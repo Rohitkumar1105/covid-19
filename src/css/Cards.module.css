@@ -28,22 +28,22 @@
 }
 
 .total {
-    background-color: rgb(207, 59, 207);
+    background-color: rgb(111, 173, 235);
     border-radius: 10px;
 }
 
 .infected {
-    background-color: rgb(127, 125, 224);
+    background-color: #F99D2E;
     border-radius: 10px;
 }
 
 .discharged {
-    background-color: rgba(81, 209, 64);
+    background-color: #65DD9B;
     border-radius: 10px;
 }
 
 .deaths {
-    background-color: rgba(247, 45, 45);
+    background-color: rgb(235, 111, 111);
     border-radius: 10px;
 }
 

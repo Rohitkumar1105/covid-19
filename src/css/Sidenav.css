@@ -3,15 +3,37 @@
     left: 0;
     border-radius: 10px;
     border: 1px solid #dddddd;
-    background-color: lightgray;
+    background-color: #49609e;
   }
 
-table {
-  /* background-color: rgb(230, 173, 173); */
-  /* background-color: #EDF2F7; */
-  border-radius: 10px;
+table > thead > tr > th {
+  background-color: #49609e;
+  color: white;
 }
 
 table tr td:hover {
   cursor: pointer;
+}
+
+table.striped > tbody > tr:nth-child(even){
+  background-color: #8aa0df;
+}
+
+.displayStates {
+  border-radius: 10px;
+  /* border: 1px solid #dddddd; */
+  background-color: #8aa0df;
+  margin-top: 1rem;
+}
+
+.search-field {
+  background-color: #49609e;
+  width: fit-content;
+  margin: 1rem 0;
+}
+
+input {
+  margin: 0;
+  border: 1px solid gray;
+
 }

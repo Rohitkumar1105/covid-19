@@ -70,18 +70,29 @@ const Sidenav = (props) => {
         <div>
             <Header />
             <div className="row">
-                <div className="col s12 m4 l2">
+                <div className="col s12 m2">
                     <div className="card z-depth-3">
                         <div className="center">
-                        <h6> Updated: {new Date(lastUpdate).toDateString()} </h6>
-                            <h3 className="red-text"><CountUp start={0} end={data.summary.total} duration={2} separator="," /> </h3>
-                            <h6>Total</h6>
-                            <h4>  <CountUp start={0} end={active} duration={2} separator="," /> </h4>
-                            <h6>Active</h6>
-                            <h4>  <CountUp start={0} end={data.summary.deaths} duration={2} separator="," /> </h4>
-                            <h6>Deaths</h6>
-                            <h4>  <CountUp start={0} end={data.summary.discharged} duration={2} separator="," /> </h4>
-                            <h6>Recovered</h6>
+                            <div className="white-text">
+                                <h4>INDIA</h4>    
+                                <h6> Updated: {new Date(lastUpdate).toDateString()} </h6>
+                            </div>
+                            <div style={{color: "rgb(111, 173, 235)"}}>
+                                <h3><CountUp start={0} end={data.summary.total} duration={2} separator="," /> </h3>
+                                <h5>Total</h5>
+                            </div>
+                            <div style={{color: "#F99D2E"}}>
+                                <h4>  <CountUp start={0} end={active} duration={2} separator="," /> </h4>
+                                <h5>Active</h5>
+                            </div>
+                            <div style={{color: "rgb(235, 111, 111)"}}>
+                                <h4>  <CountUp start={0} end={data.summary.deaths} duration={2} separator="," /> </h4>
+                                <h5>Deaths</h5>
+                            </div>
+                            <div style={{color: "#65DD9B"}}>
+                                <h4>  <CountUp start={0} end={data.summary.discharged} duration={2} separator="," /> </h4>
+                                <h5>Recovered</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,15 +100,13 @@ const Sidenav = (props) => {
                 <div className="col l1"></div> 
                 
                 <div className="col s12 m8">
-                    <label htmlFor="state"></label>
                     <input 
                         type="text" 
-                        id="state" 
                         placeholder="Search for the state.." 
                         value={stateName} onChange={e => setStateName(e.target.value)} 
                     />
 
-                    <table className="striped responsive-table">
+                    <table className="striped highlight responsive-table">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -113,8 +122,6 @@ const Sidenav = (props) => {
                             { stateName === '' ? stateList : filteredStateList }  
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@ const Graph = ({total, activeCases, discharged, deaths}) => {
                         datasets: [{
                             label: 'People',
                             fill: true,
-                            backgroundColor: ['rgb(207, 59, 207)', 'rgb(127, 125, 224)', 'rgb(81, 209, 64)', 'rgb(247, 45, 45)'],
+                            backgroundColor: ['rgb(111, 173, 235)', '#F99D2E', '#65DD9B', 'rgb(235, 111, 111)'],
                             data: [total, activeCases, discharged, deaths ],
                         }]
                     }}
