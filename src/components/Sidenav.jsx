@@ -102,26 +102,33 @@ const Sidenav = (props) => {
                 <div className="col s12 m8">
                     <input 
                         type="text" 
-                        placeholder="Search for the state.." 
+                        placeholder="Search states..." 
                         value={stateName} onChange={e => setStateName(e.target.value)} 
                     />
 
-                    <table className="striped highlight responsive-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>State/UT</th>
-                                <th>Total</th>
-                                <th>Active</th>
-                                <th>Recovered</th>
-                                <th>Deaths</th>
-                            </tr>
-                        </thead>
+                    <div className="tooltip">
+                        <img src="https://img.icons8.com/color/48/000000/info--v1.png" alt="info" style={{height:"20px", width:"20px", margin:"0 1rem"}} />
+                        <span className="tooltiptext">Click on the states to know more</span>
+                    </div>
 
-                        <tbody>
-                            { stateName === '' ? stateList : filteredStateList }  
-                        </tbody>
-                    </table>
+                    <div className="table-height">
+                        <table className="striped highlight">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>State/UT</th>
+                                    <th>Total</th>
+                                    <th>Active</th>
+                                    <th>Recovered</th>
+                                    <th>Deaths</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                { stateName === '' ? stateList : filteredStateList }  
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
