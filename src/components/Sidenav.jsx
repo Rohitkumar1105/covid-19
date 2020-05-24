@@ -37,7 +37,6 @@ const Sidenav = (props) => {
                 <td>{index+1}</td>
                 <td>{state.loc}</td>
                 <td>{state.totalConfirmed}</td>
-                <td>{state.totalConfirmed - state.discharged - state.deaths}</td>
                 <td>{state.discharged}</td>
                 <td>{state.deaths}</td>
             </tr>
@@ -56,7 +55,6 @@ const Sidenav = (props) => {
                 <td>{index+1}</td>
                 <td>{state.loc}</td>
                 <td>{state.totalConfirmed}</td>
-                <td>{state.totalConfirmed - state.discharged - state.deaths}</td>
                 <td>{state.discharged}</td>
                 <td>{state.deaths}</td>
             </tr>
@@ -100,15 +98,18 @@ const Sidenav = (props) => {
                 <div className="col l1"></div> 
                 
                 <div className="col s12 m8">
-                    <input 
-                        type="text" 
-                        placeholder="Search states..." 
-                        value={stateName} onChange={e => setStateName(e.target.value)} 
-                    />
+                    <div className="heading">
+                        <h4>INDIA COVID-19 Stats</h4>
+                        <input 
+                            type="text" 
+                            placeholder="Search states..." 
+                            value={stateName} onChange={e => setStateName(e.target.value)} 
+                        />
+                    </div>
 
-                    <div className="tooltip">
-                        <img src="https://img.icons8.com/color/48/000000/info--v1.png" alt="info" style={{height:"20px", width:"20px", margin:"0 1rem"}} />
-                        <span className="tooltiptext">Click on the states to know more</span>
+                    <div>
+                        <img src="https://img.icons8.com/color/48/000000/info--v1.png" alt="info" style={{height:"20px", width:"20px", verticalAlign: "middle"}} />
+                        <span>Click on the states to know more</span>
                     </div>
 
                     <div className="table-height">
@@ -118,7 +119,6 @@ const Sidenav = (props) => {
                                     <th>#</th>
                                     <th>State/UT</th>
                                     <th>Total</th>
-                                    <th>Active</th>
                                     <th>Recovered</th>
                                     <th>Deaths</th>
                                 </tr>
