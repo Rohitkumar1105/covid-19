@@ -1,20 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Sidenav, Cards } from './components' 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import store from './store'
+import { fetchData } from './action/getCoronaData_action'
 
-const App = () => {
+const AppWrapper = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Sidenav} />
-          <Route exact path={`${process.env.PUBLIC_URL}/:name`} component={Cards} />
-        </Switch>
-      </BrowserRouter>
+      <App />
     </Provider>
   )
 }
 
-export default App
+const App = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+      dispatch(fetchData())
+      console.log("runn")
+    }, [dispatch])
+
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Sidenav} />
+        <Route exact path={`${process.env.PUBLIC_URL}/:name`} component={Cards} />
+      </Switch>
+    </BrowserRouter>
+  )
+}
+
+export default AppWrapper

@@ -18,7 +18,7 @@ function loadFromLocalStorage(){
     try{
         const serializedState = localStorage.getItem('state')
         if(serializedState === null) return undefined
-        return JSON.stringify(serializedState)
+        return JSON.parse(serializedState)
     }
     catch (e){
         console.log(e)
@@ -30,11 +30,8 @@ const preloadedState = loadFromLocalStorage()
 
 const store = createStore(rootReducer, preloadedState, compose(
     applyMiddleware(thunk),
-
     //For working redux dev tools in chrome (https://github.com/zalmoxisus/redux-devtools-extension)
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : function (f) {
-        return f;
-    }
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
 ))
 
 store.subscribe(() => saveToLocalStorage(store.getState())) 

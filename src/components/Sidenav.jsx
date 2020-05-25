@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import CountUp from 'react-countup'
 import { Header } from './index'
 import { useHistory } from 'react-router-dom'
 import '../css/Sidenav.css'
-import { fetchData } from '../action/getCoronaData_action'
 
 const Sidenav = (props) => {
     //State
     const [stateName, setStateName] = useState('')
 
     //Dispatching action to fetch data from API
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchData())
-      }, [dispatch])
+
     
     //Fetching data from redux store
     const data = useSelector(state => state.covid.data.data)
