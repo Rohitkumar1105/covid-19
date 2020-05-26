@@ -1,14 +1,12 @@
 import { GET_CORONA_DATA } from '../constants/action_types'
 
-const initState = {
-    data: []
-}
+const initState = {}
 
 const getCoronaDataReducer = (state = initState, action) => {
     if(action.type === GET_CORONA_DATA){
         return {
             ...state,
-            data: action.payload
+            ...action.payload
         }
     }
     return state;

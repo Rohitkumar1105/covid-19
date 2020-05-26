@@ -9,12 +9,10 @@ const Sidenav = (props) => {
     //State
     const [stateName, setStateName] = useState('')
 
-    //Dispatching action to fetch data from API
-
-    
     //Fetching data from redux store
-    const data = useSelector(state => state.covid.data.data)
-    const lastUpdate = useSelector(state => state.covid.data.lastRefreshed)
+    const data = useSelector(state => state.covid.data)
+    const lastUpdate = useSelector(state => state.covid.lastRefreshed)
+    const pastData = useSelector(state => state.pastData.data)
 
     const history = useHistory()
     
@@ -33,6 +31,7 @@ const Sidenav = (props) => {
                 <td>{index+1}</td>
                 <td>{state.loc}</td>
                 <td>{state.totalConfirmed}</td>
+                <td>{state.totalConfirmed - state.discharged - state.deaths}</td>
                 <td>{state.discharged}</td>
                 <td>{state.deaths}</td>
             </tr>
@@ -51,42 +50,62 @@ const Sidenav = (props) => {
                 <td>{index+1}</td>
                 <td>{state.loc}</td>
                 <td>{state.totalConfirmed}</td>
+                <td>{state.totalConfirmed - state.discharged - state.deaths}</td>
                 <td>{state.discharged}</td>
                 <td>{state.deaths}</td>
             </tr>
         )
     })
 
-    //Calculating the active cases
+    //Calculating the present covid-19 cases
     const active = data.summary.total - data.summary.deaths - data.summary.discharged
+    let total, discharged, deaths = 0
+    total = data.summary.total
+    discharged = data.summary.discharged
+    deaths = data.summary.deaths
 
+    //Calculating yesterday's date
+    const today = new Date()
+    today.setDate(today.getDate() - 1)
+    const yesterday = today.toDateString()
+
+    //Declaring variables
+    let increasedTotalCases, increasedActiveCases, increasedDischargedCases, increasedDeaths = 0; 
+
+    //Assigning the total incremented cases
+    pastData.map(({day, summary:{total, discharged, deaths}}) => {
+        if(new Date(day).toDateString() === yesterday){
+            increasedTotalCases = total
+            increasedActiveCases = total - discharged - deaths
+            increasedDischargedCases = discharged
+            increasedDeaths = deaths
+        }
+        return day
+    })
+    
     return (
         <div>
             <Header />
             <div className="row">
                 <div className="col s12 m2">
-                    <div className="card z-depth-3">
-                        <div className="center">
-                            <div className="white-text">
-                                <h4>INDIA</h4>    
-                                <h6> Updated: {new Date(lastUpdate).toDateString()} </h6>
-                            </div>
-                            <div style={{color: "rgb(111, 173, 235)"}}>
-                                <h3><CountUp start={0} end={data.summary.total} duration={2} separator="," /> </h3>
-                                <h5>Total</h5>
-                            </div>
-                            <div style={{color: "#F99D2E"}}>
-                                <h4>  <CountUp start={0} end={active} duration={2} separator="," /> </h4>
-                                <h5>Active</h5>
-                            </div>
-                            <div style={{color: "rgb(235, 111, 111)"}}>
-                                <h4>  <CountUp start={0} end={data.summary.deaths} duration={2} separator="," /> </h4>
-                                <h5>Deaths</h5>
-                            </div>
-                            <div style={{color: "#65DD9B"}}>
-                                <h4>  <CountUp start={0} end={data.summary.discharged} duration={2} separator="," /> </h4>
-                                <h5>Recovered</h5>
-                            </div>
+                    <div className="card z-depth-3 center" onClick={() =>  history.push('/India')}>
+                        <a href="/India" className="white-text"><h4>INDIA</h4></a>    
+                        <h6 className="white-text"> Updated: {new Date(lastUpdate).toDateString()} </h6>
+                        <div style={{color: "rgb(111, 173, 235)"}}>
+                            <h4><CountUp start={0} end={total} duration={2} separator="," /> <h6>(+{total - increasedTotalCases})</h6> </h4>
+                            <h5>Total</h5>
+                        </div>
+                        <div style={{color: "#F99D2E"}}>
+                            <h4>  <CountUp start={0} end={active} duration={2} separator="," /> <h6>(+{active - increasedActiveCases})</h6> </h4>
+                            <h5>Active</h5>
+                        </div>
+                        <div style={{color: "rgb(235, 111, 111)"}}>
+                            <h4>  <CountUp start={0} end={deaths} duration={2} separator="," /> <h6>(+{deaths - increasedDeaths})</h6> </h4>
+                            <h5>Deaths</h5>
+                        </div>
+                        <div style={{color: "#65DD9B"}}>
+                            <h4>  <CountUp start={0} end={discharged} duration={2} separator="," /> <h6>(+{discharged - increasedDischargedCases})</h6> </h4>
+                            <h5>Recovered</h5>
                         </div>
                     </div>
                 </div>
@@ -115,6 +134,7 @@ const Sidenav = (props) => {
                                     <th>#</th>
                                     <th>State/UT</th>
                                     <th>Total</th>
+                                    <th>Active</th>
                                     <th>Recovered</th>
                                     <th>Deaths</th>
                                 </tr>

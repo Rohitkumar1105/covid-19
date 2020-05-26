@@ -2,25 +2,22 @@
     text-align: center;
 }
 
-.heading h5 {
+.heading h4 {
     text-transform: uppercase;
 }
 
-.heading h6 {
-    color: red;
-}
-
 .card {
-    border: 1px solid rgba(218, 207, 207, 0.829);
-    text-align: center;
-    /* margin: 2vw 0; */
-    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    margin-bottom: 1rem;
+    border: 1px solid #dddddd;
 }
 
-.card h4,
+.card h5,
 .card h6 {
     margin: 0;
     padding: 5px;
+    text-align: center;
 }
 
 .card img {
@@ -28,31 +25,52 @@
 }
 
 .total {
-    /* background-color: rgb(111, 173, 235); */
-    border-bottom: 10px solid rgb(111, 173, 235);
+    /* color: rgb(111, 173, 235); */
+    color: blue;
     border-radius: 10px;
+    flex: 1;
 }
 
 .infected {
-    /* background-color: #F99D2E; */
-    border-bottom: 10px solid #F99D2E;
+    /* color: #F99D2E; */
+    color: orange;
+    flex: 1;
     border-radius: 10px;
 }
 
 .discharged {
-    /* background-color: #65DD9B; */
-    border-bottom: 10px solid #65DD9B;
+    /* color: #65DD9B; */
+    color: green;
+    flex: 1;
     border-radius: 10px;
 }
 
 .deaths {
-    /* background-color: rgb(235, 111, 111); */
-    border-bottom: 10px solid rgb(235, 111, 111);
+    /* color: rgb(235, 111, 111); */
+    color: red;
+    flex: 1;
     border-radius: 10px;
 }
 
 .showGraph {
-    height: 80%;
-    width: 90%;
-    margin: auto;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media(max-width: 600px) {
+    .card {
+        padding: 5px;
+        margin-bottom: 2rem;
+    }
+
+    .card h5 {
+        font-size: 22px;
+    } 
+
+    .showGraph {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+    }
 }

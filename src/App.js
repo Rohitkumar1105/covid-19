@@ -3,7 +3,7 @@ import { Sidenav, Cards } from './components'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider, useDispatch } from 'react-redux'
 import store from './store'
-import { fetchData } from './action/getCoronaData_action'
+import { fetchData, fetchPastData } from './action/getCoronaData_action'
 
 const AppWrapper = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
       dispatch(fetchData())
-      console.log("runn")
+      dispatch(fetchPastData())
     }, [dispatch])
 
   return (

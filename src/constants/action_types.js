@@ -1,1 +1,2 @@
 export const GET_CORONA_DATA = 'GET_CORONA_DATA'
+export const GET_CORONA_PAST= 'GET_CORONA_PAST'
