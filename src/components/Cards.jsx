@@ -57,6 +57,16 @@ const Cards = (props) => {
         deaths = countryData.deaths
         fatalityRate = (countryData.deaths/countryData.total) * 100
         recoveryRate = (countryData.discharged/countryData.total) * 100
+
+        pastData.map(({day, summary:{total, discharged, deaths}}) => {
+            if(new Date(day).toDateString() === yesterday){
+                increasedTotalCases = total
+                increasedActiveCases = total - discharged - deaths
+                increasedDischargedCases = discharged
+                increasedDeaths = deaths
+            }
+            return day
+        })
     }
 
     return (
@@ -81,12 +91,12 @@ const Cards = (props) => {
                             </div>
                             <div className={styles.discharged}>
                                 <h5> <CountUp start={0} end={discharged} duration={1} separator=","  /> </h5>
-                                <h6>Discharged</h6>
+                                <h6>Total Discharged</h6>
                                 <h6>( +{discharged - increasedDischargedCases} )</h6> 
                             </div>
                             <div className={styles.deaths}>
                                 <h5> <CountUp start={0} end={deaths} duration={1} separator=","  /> </h5>
-                                <h6>Deaths</h6>
+                                <h6>Total Deaths</h6>
                                 <h6>( +{deaths - increasedDeaths} )</h6>
                             </div>
                         </div>
