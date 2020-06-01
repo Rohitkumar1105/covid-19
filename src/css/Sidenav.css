@@ -10,15 +10,13 @@
   cursor: pointer;
 }
 
-.card a:hover{
+.card .link:hover{
   text-decoration: underline;
 }
 
 .card h6 {
   margin-bottom: 0;
 }
-
-
 
 table > thead > tr > th {
   background-color: #49609e;
