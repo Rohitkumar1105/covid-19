@@ -21,7 +21,7 @@ const Sidenav = (props) => {
     }
 
     if(!data){
-        return <h1>Loading...</h1>
+        return <h2>Loading...</h2>
     }
 
     //Mapping over the state data and displaying it in a table
