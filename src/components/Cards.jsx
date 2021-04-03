@@ -77,7 +77,7 @@ const Cards = (props) => {
                     <h4> <strong> {props.match.params.name} </strong></h4>
                 </div>
                 <div className="row">
-                    <div className="col s12 l6">
+                    <div className="col s12">
                         <div className={cx(styles.card, "z-depth-2")}>
                             <div className={styles.total}>
                                 <h5> <CountUp start={0} end={total} duration={1} separator="," /> </h5>
@@ -101,13 +101,13 @@ const Cards = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col s6 l3">
+                    <div className="col s6 l6">
                         <div className={cx(styles.card, "z-depth-2")}>
                             <h5>{fatalityRate.toFixed(2)}%</h5>
                             <h6>Fatality Rate</h6>
                         </div>
                     </div>
-                    <div className="col s6 l3">
+                    <div className="col s6 l6">
                         <div className={cx(styles.card, "z-depth-2")}>
                             <h5>{recoveryRate.toFixed(2)}%</h5>
                             <h6>Recovery Rate</h6>

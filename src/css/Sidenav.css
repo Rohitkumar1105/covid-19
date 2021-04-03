@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.card .link:hover{
+.card .link:hover {
   text-decoration: underline;
 }
 
@@ -27,7 +27,7 @@ table tr td:hover {
   cursor: pointer;
 }
 
-table.striped > tbody > tr:nth-child(even){
+table.striped > tbody > tr:nth-child(even) {
   background-color: #8aa0df;
 }
 
@@ -41,7 +41,7 @@ table.striped > tbody > tr:nth-child(even){
   display: inline-block;
 }
 
-input[type=text]:not(.browser-default) {
+input[type="text"]:not(.browser-default) {
   outline: gray;
   margin: 1rem 0;
   flex: 1;
@@ -51,7 +51,7 @@ input[type=text]:not(.browser-default) {
   border-radius: 10px;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .table-height {
     height: 500px;
     overflow-y: scroll;
@@ -67,3 +67,14 @@ input[type=text]:not(.browser-default) {
   }
 }
 
+@media (max-width: 800px) {
+  .table-height {
+    height: 700px;
+    overflow-y: scroll;
+  }
+
+  .heading {
+    display: block;
+    text-align: center;
+  }
+}

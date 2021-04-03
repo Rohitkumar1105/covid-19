@@ -87,7 +87,7 @@ const Sidenav = (props) => {
         <div>
             <Header />
             <div className="row">
-                <div className="col s12 m2">
+                <div className="col s12 m4">
                     <div className="card z-depth-3 center" onClick={() =>  history.push('/India')}>
                         <h4 className="white-text link">INDIA</h4> 
                         <h6 className="white-text"> Updated: {new Date(lastUpdate).toDateString()} </h6>
